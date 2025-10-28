@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predict Water Usage | Smart Water Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      color: white;
+      overflow-x: hidden;
+      animation: fadeInBody 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      letter-spacing: 1px;
+      animation: glowText 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #90e0ef, 0 0 10px #00b4d8; }
+      to { text-shadow: 0 0 15px #90e0ef, 0 0 30px #48cae4; }
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #90e0ef;
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+      animation: slideUp 1.2s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      font-size: 2em;
+      background: linear-gradient(90deg, #90e0ef, #caf0f8);
+      -webkit-background-clip: text;
+      background-clip: text; /* ✅ compatibility */
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      animation: pulseGlow 2.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { text-shadow: 0 0 5px #48cae4; }
+      to { text-shadow: 0 0 20px #90e0ef; }
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      outline: none;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    select:focus, input:focus {
+      box-shadow: 0 0 10px #90e0ef;
+      transform: scale(1.02);
+    }
+
+    button {
+      background: #fff;
+      color: #0077b6;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 25px;
+    }
+
+    button:hover {
+      background: #caf0f8;
+      transform: scale(1.08);
+      box-shadow: 0 0 15px #90e0ef;
+    }
+
+    .result-box {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 0.9em;
+      opacity: 0;
+      animation: fadeFooter 1.5s ease forwards;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes fadeFooter {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💧 Smart Water Tracker</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/predict" class="active">Predict</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Water Usage Prediction</h2>
+
+    <label for="country">Select Country:</label>
+    <select id="country">
+      <option value="">-- Select Country --</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Australia">Australia</option>
+      <option value="Brazil">Brazil</option>
+      <option value="Canada">Canada</option>
+      <option value="China">China</option>
+      <option value="France">France</option>
+      <option value="Germany">Germany</option>
+      <option value="India">India</option>
+      <option value="Indonesia">Indonesia</option>
+      <option value="Italy">Italy</option>
+      <option value="Japan">Japan</option>
+      <option value="Mexico">Mexico</option>
+      <option value="Russia">Russia</option>
+      <option value="Saudi Arabia">Saudi Arabia</option>
+      <option value="South Africa">South Africa</option>
+      <option value="South Korea">South Korea</option>
+      <option value="Spain">Spain</option>
+      <option value="Turkey">Turkey</option>
+      <option value="UK">UK</option>
+      <option value="USA">USA</option>
+    </select>
+
+    <label for="year">Enter Year:</label>
+    <input type="number" id="year" placeholder="e.g. 2030">
+
+    <button id="predictBtn">Predict</button>
+
+    <div class="result-box" id="resultBox">
+      <h3>🌍 Prediction Result:</h3>
+      <p><strong>Predicted Water Usage:</strong> <span id="prediction"></span> Billion m³</p>
+      <p id="insight"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Smart Water Tracker | Sustainable Future 💙</p>
+  </footer>
+
+  <script>
+    document.getElementById('predictBtn').addEventListener('click', async () => {
+      const country = document.getElementById('country').value;
+      const year = document.getElementById('year').value;
+
+      if (!country || !year) {
+        alert('⚠️ Please select a country and enter a valid year!');
+        return;
+      }
+
+      try {
+        const res = await fetch('/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ country, year })
+        });
+
+        const data = await res.json();
+
+        if (data.error) {
+          alert('❌ ' + data.error);
+        } else {
+          document.getElementById('resultBox').style.display = 'block';
+          document.getElementById('prediction').textContent = data.prediction.toFixed(2);
+          document.getElementById('insight').textContent = data.insight;
+        }
+      } catch (err) {
+        alert('⚠️ Error fetching prediction!');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

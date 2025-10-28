@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Smart Water Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 { 
+      font-size: 1.8em; 
+      letter-spacing: 1px; 
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, 
+    nav a.active { 
+      color: #90e0ef; 
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 100px auto;
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+
+    h2 {
+      background: linear-gradient(90deg, #90e0ef, #caf0f8);
+      background-clip: text;           /* ✅ Standard property added */
+      -webkit-background-clip: text;   /* ✅ WebKit fallback for Chrome/Safari */
+      -webkit-text-fill-color: transparent;
+      font-size: 2.5em;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.1em;
+      color: #e0f7fa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💧 Smart Water Tracker</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/predict">Predict</a>
+      <a href="/about" class="active">About</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h2>About Smart Water Tracker</h2>
+    <p>
+      Smart Water Tracker is a data-driven initiative designed to help governments,
+      researchers, and citizens make informed decisions about water usage.
+      Using predictive modeling and sustainability insights, it forecasts
+      water consumption trends for countries worldwide.
+    </p>
+    <p>
+      Our mission is to encourage smarter, sustainable water management to protect
+      future generations from scarcity and environmental imbalance.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 Smart Water Tracker | Designed for a Sustainable Future 💙</p>
+  </footer>
+
+</body>
+</html>

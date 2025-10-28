@@ -1,0 +1,243 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0077b6, #00b4d8, #90e0ef);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #caf0f8;
+  text-shadow: 0 0 10px #fff;
+}
+
+.hero {
+  padding: 100px 20px;
+  animation: fadeIn 2s ease;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+button {
+  background: white;
+  color: #0077b6;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #caf0f8;
+  color: #023e8a;
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🌊 Smart Water Tracker – Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #001d3d, #003566);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Navigation Bar */
+nav {
+  background: rgba(0, 29, 61, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00b4d8, #90e0ef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #90e0ef;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-top: 120px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1 {
+  font-size: 3em;
+  background: linear-gradient(90deg, #00b4d8, #90e0ef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 15px;
+  color: #caf0f8;
+}
+
+.hero button {
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  margin-top: 30px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+}
+
+/* Wave Footer Animation */
+footer {
+  position: relative;
+  margin-top: auto;
+  text-align: center;
+  background: #001d3d;
+  padding: 20px;
+  color: #90e0ef;
+  overflow: hidden;
+}
+
+footer p {
+  position: relative;
+  z-index: 2;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: rgba(0, 180, 216, 0.3);
+  animation: waveAnimation 6s infinite linear;
+}
+
+@keyframes waveAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.3em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .hero button {
+    padding: 10px 20px;
+  }
+}
