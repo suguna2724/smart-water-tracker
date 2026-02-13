@@ -9,16 +9,18 @@ scaler = joblib.load('scaler.pkl')
 data = pd.read_csv('cleaned_global_water_consumption.csv')
 
 st.title("🌊 Smart Water Consumption Predictor")
-
 st.write("Predict future water usage based on country & year")
 
+# Get unique countries for dropdown
+country_list = sorted(data['Country'].dropna().unique())
+
 # Input fields
-country = st.text_input("Enter Country")
+country = st.selectbox("Select Country", country_list)
 year = st.number_input("Enter Year", min_value=2000, max_value=2100, step=1)
 
 if st.button("Predict"):
     try:
-        df_country = data[data['Country'].str.lower() == country.lower()]
+        df_country = data[data['Country'] == country]
 
         if df_country.empty:
             st.error(f"Country '{country}' not found in dataset.")
